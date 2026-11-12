@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Glassmorphism and Custom Glows */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glow-indigo {
+  box-shadow: 0 0 25px -5px rgba(79, 70, 229, 0.35);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(5, 150, 105, 0.4);
+}
+
+.glow-amber {
+  box-shadow: 0 0 25px -5px rgba(217, 119, 6, 0.35);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+
+/* Customer workspace: restrained, accessible product styling */
+.customer-shell { color: #0f172a; }
+.customer-shell button, .customer-shell input, .customer-shell select { transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease; }
+.customer-shell button:focus-visible, .customer-shell input:focus-visible, .customer-shell select:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+
+/* SmartQueue banking interface — shared design tokens and accessible defaults */
+:root { color-scheme: light; --sq-ink:#0f172a; --sq-muted:#64748b; --sq-border:#e2e8f0; --sq-indigo:#4f46e5; --sq-surface:#ffffff; --sq-canvas:#f8fafc; }
+html { background:var(--sq-canvas); scroll-behavior:smooth; }
+body { background:var(--sq-canvas); color:var(--sq-ink); }
+button, input, select, textarea { font: inherit; }
+button { -webkit-tap-highlight-color:transparent; }
+:focus-visible { outline:3px solid rgba(79,70,229,.45); outline-offset:2px; }
+::selection { background:#e0e7ff; color:#1e1b4b; }
+::-webkit-scrollbar-track { background:#f1f5f9; }
+::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:8px; }
+::-webkit-scrollbar-thumb:hover { background:#94a3b8; }
+.sq-navbar nav button { white-space:nowrap; }
+.sq-navbar button:focus-visible { outline-offset:1px; }
+
+/* Bring the legacy staff/admin workspaces into the same light design language. */
+.sq-staff-shell, .sq-admin-shell { background:#f8fafc !important; color:#0f172a !important; }
+.sq-staff-shell aside, .sq-staff-shell header, .sq-admin-shell aside, .sq-admin-shell header { background:#fff !important; border-color:#e2e8f0 !important; }
+.sq-staff-shell .bg-slate-900, .sq-staff-shell .bg-slate-850, .sq-staff-shell .bg-slate-850\/95, .sq-staff-shell .bg-slate-850\/90, .sq-staff-shell .bg-slate-800, .sq-staff-shell .bg-slate-800\/80,
+.sq-admin-shell .bg-slate-900, .sq-admin-shell .bg-slate-850, .sq-admin-shell .bg-slate-850\/95, .sq-admin-shell .bg-slate-850\/90, .sq-admin-shell .bg-slate-800, .sq-admin-shell .bg-slate-800\/80 { background:#f8fafc !important; }
+.sq-staff-shell [class*="border-slate-7"], .sq-staff-shell [class*="border-slate-8"], .sq-admin-shell [class*="border-slate-7"], .sq-admin-shell [class*="border-slate-8"] { border-color:#e2e8f0 !important; }
+.sq-staff-shell .text-slate-100, .sq-staff-shell .text-slate-200, .sq-staff-shell .text-slate-300, .sq-staff-shell .text-white,
+.sq-admin-shell .text-slate-100, .sq-admin-shell .text-slate-200, .sq-admin-shell .text-slate-300, .sq-admin-shell .text-white { color:#0f172a !important; }
+.sq-staff-shell .text-slate-400, .sq-staff-shell .text-slate-500, .sq-admin-shell .text-slate-400, .sq-admin-shell .text-slate-500 { color:#64748b !important; }
+.sq-staff-shell .bg-indigo-600, .sq-admin-shell .bg-indigo-600, .sq-staff-shell .bg-indigo-600 *, .sq-admin-shell .bg-indigo-600 * { color:#fff !important; }
+.sq-staff-shell input, .sq-staff-shell select, .sq-staff-shell textarea, .sq-admin-shell input, .sq-admin-shell select, .sq-admin-shell textarea { background:#fff !important; border-color:#cbd5e1 !important; color:#0f172a !important; }
+.sq-staff-shell table thead, .sq-admin-shell table thead { background:#f1f5f9 !important; color:#475569 !important; }
+.sq-kiosk-shell .text-white { color:#0f172a !important; }
+.sq-kiosk-shell .bg-navy-900, .sq-kiosk-shell .bg-navy-900\/90, .sq-kiosk-shell .bg-slate-900, .sq-kiosk-shell .bg-slate-900\/70 { background:#f8fafc !important; }
+.sq-kiosk-shell [class*="border-slate-7"], .sq-kiosk-shell [class*="border-slate-8"] { border-color:#e2e8f0 !important; }
+.sq-kiosk-shell input, .sq-kiosk-shell select { background:#fff !important; border-color:#cbd5e1 !important; color:#0f172a !important; }
+.sq-kiosk-shell button.bg-indigo-600, .sq-kiosk-shell button.bg-indigo-600 * { color:#fff !important; }
+
+/* Clear, readable feedback instead of low-visibility micro alerts. */
+.sq-alert { display:flex; align-items:flex-start; gap:.75rem; border:1px solid; border-radius:.75rem; padding:.9rem 1rem; font-size:.875rem; line-height:1.45; }
+.sq-alert--warning { background:#fffbeb; border-color:#fcd34d; color:#92400e; }
+.sq-alert--error { background:#fff1f2; border-color:#fda4af; color:#9f1239; }
+.sq-alert--success { background:#ecfdf5; border-color:#86efac; color:#065f46; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } }
+.sq-admin-analytics .bg-navy-900, .sq-admin-analytics .bg-navy-900\/80, .sq-admin-analytics .bg-navy-900\/90, .sq-admin-analytics .bg-slate-900, .sq-admin-analytics .bg-slate-800 { background:#f8fafc !important; }
+.sq-admin-analytics .text-white, .sq-admin-analytics .text-slate-100, .sq-admin-analytics .text-slate-200, .sq-admin-analytics .text-slate-300 { color:#0f172a !important; }
+.sq-admin-analytics .text-slate-400, .sq-admin-analytics .text-slate-500 { color:#64748b !important; }
+.sq-admin-analytics [class*="border-slate-7"], .sq-admin-analytics [class*="border-slate-8"] { border-color:#e2e8f0 !important; }
+.sq-admin-analytics input, .sq-admin-analytics select { background:#fff !important; color:#0f172a !important; border-color:#cbd5e1 !important; }
+.sq-admin-analytics .bg-indigo-600, .sq-admin-analytics .bg-indigo-600 *, .sq-admin-analytics button.bg-emerald-600, .sq-admin-analytics button.bg-emerald-600 * { color:#fff !important; }
+.sq-kiosk-shell .text-indigo-400 { color:#4338ca !important; }
+.sq-kiosk-shell .text-emerald-400, .sq-kiosk-shell .text-emerald-300 { color:#047857 !important; }
+.sq-kiosk-shell .text-amber-400, .sq-kiosk-shell .text-amber-300 { color:#92400e !important; }
+.sq-kiosk-shell .text-rose-300, .sq-kiosk-shell .text-rose-400 { color:#be123c !important; }
+.sq-kiosk-shell .glass-card { background:#fff !important; border-color:#e2e8f0 !important; backdrop-filter:none !important; }
+.sq-kiosk-shell .text-slate-400 { color:#64748b !important; }
+.sq-kiosk-shell .bg-indigo-600\/15 { background:#eef2ff !important; }
+.sq-kiosk-shell .bg-slate-800 { background:#f1f5f9 !important; }
+.sq-customer-access .text-slate-300 { color:#475569 !important; }
+.sq-customer-access .text-slate-400 { color:#64748b !important; }
+.sq-customer-access .text-indigo-300 { color:#4338ca !important; }
+.sq-customer-access .bg-slate-900 { background:#f8fafc !important; }
+.sq-customer-access .text-white { color:#0f172a !important; }
+
+/* Final light-only consistency pass for legacy operational screens. */
+.sq-staff-shell .bg-slate-700, .sq-staff-shell .bg-slate-700\/90, .sq-staff-shell .bg-slate-600, .sq-admin-shell .bg-slate-700, .sq-admin-shell .bg-slate-700\/90, .sq-admin-shell .bg-slate-600 { background:#f1f5f9 !important; }
+.sq-staff-shell .hover\:bg-slate-800:hover, .sq-staff-shell .hover\:bg-slate-600:hover, .sq-admin-shell .hover\:bg-slate-800:hover { background:#f1f5f9 !important; }
+.sq-staff-shell .text-indigo-300, .sq-staff-shell .text-indigo-400, .sq-admin-shell .text-indigo-300, .sq-admin-shell .text-indigo-400 { color:#4338ca !important; }
+.sq-staff-shell .text-emerald-300, .sq-staff-shell .text-emerald-400, .sq-admin-shell .text-emerald-300, .sq-admin-shell .text-emerald-400 { color:#047857 !important; }
+.sq-staff-shell .text-rose-300, .sq-staff-shell .text-rose-400, .sq-admin-shell .text-rose-300, .sq-admin-shell .text-rose-400 { color:#be123c !important; }
+.sq-staff-shell .bg-rose-500\/10, .sq-admin-shell .bg-rose-500\/10 { background:#fff1f2 !important; }
+.sq-staff-shell .bg-emerald-500\/10, .sq-admin-shell .bg-emerald-500\/10 { background:#ecfdf5 !important; }
+.sq-staff-shell .bg-indigo-500\/10, .sq-admin-shell .bg-indigo-500\/10 { background:#eef2ff !important; }
+.sq-staff-shell .shadow-2xl, .sq-admin-shell .shadow-2xl { box-shadow:0 1px 3px rgb(15 23 42 / .08) !important; }
+.sq-staff-shell [class*="bg-slate-8"], .sq-staff-shell [class*="bg-slate-9"], .sq-admin-shell [class*="bg-slate-8"], .sq-admin-shell [class*="bg-slate-9"] { background:#f8fafc !important; }
+.sq-staff-shell .bg-slate-700, .sq-admin-shell .bg-slate-700 { background:#f1f5f9 !important; }
+.sq-staff-shell .hover\:text-white:hover, .sq-admin-shell .hover\:text-white:hover { color:#0f172a !important; }
+/* Use the single global role-aware navbar; avoid duplicated side navigation. */
+.sq-staff-shell > aside, .sq-admin-shell > aside { display:none !important; }
+.sq-staff-shell > div, .sq-admin-shell > div { min-width:0; width:100%; }
